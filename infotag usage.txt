@@ -1,0 +1,71 @@
+                                    OOO
+           OOO                     OO OO
+         OOOOOO                   OO   OO
+        OOO  OOO                  OO  OO
+       OOO   OOOO                  OO OO 
+       OOO   OOOO                  OOOO                  OOO
+       OOOO  OOO        OOOOO       OOO    OOOOOOOO   O OO OO       OOOOOOO    OOOOOOOO
+        OOOOOOO      OOOOO  OO      OOO   OO OOO OOOO  OOOOOOOOO   OOO  OOO    OO    OOO
+         OOOOOO     OO OO   OO      OOO  OO   OOOOOOOOO   OOO  OO  OO    OO   OOO     OO   OO
+    OO  OOOO OOOO   OO OO   OO     OOOOOOOO  OO   OO OO   OOO     OOO   OOO   OOOO   OOO  OO
+     OOOOO    OOOO OOO OO   OOOOO OOOOO OO   OO   OO  OO OO OOO  OO OO OOOOO OOOOO  OOOO OO
+      OOO      OOOOOO OO   OOO OOOOO OO  OO   OOOOO   OOOOO  OOOOOO  OOOO  OOOO OOOOO OO OO
+                                     OO  OO                                           OOOO
+                                     OO   OO                                      OOOOOO
+                                     OO   OO                                     OO  OOO
+                                      OO OOO                                    OOO  OO
+                                       OOOO                                     OO   OO
+                                                                                OO  OOO
+                                                                                  OOO
+
+Infotag Active-X DLL v1.0
+by: Somenon (somenon@hotmail.com)
+
+About:
+This DLL was written in Visual Basic 6.0 (just my style).
+I have used code for the MP3 tag reading from other sources, pieces here and there mostly.
+WMA tag reading I wrote myself entirely (some freaky MS encoding, let me tell you).
+I have tested this DLL extensively on MP3's with ID3 version 1.1 and 2.3 (backwards compatible to anything below 1.1 and 2.3)
+I have also tested this DLL extensively with WMA version 8 through 10 files, seems to work very well.
+
+
+Description:
+This DLL will get a chunk of a media file and give you back specific properties of that file, including: artist, title, album, duration, bitrate, filesize, etc.. This DLL is in it's very early stages, and if you would like the source code (mostly undocumented) just shoot me an email...
+
+
+Supported File Types (as of this version):
+MP3, WMA (YES, WMA, Most Versions!)
+
+
+Usage:
+Use Tagreader.Infotag as the object.
+
+Within the Infotag class is a function called Find_Header_Tags
+Pass this function the complete path to the MP3 or WMA file (Note: file exists checking is not done by the dll, so it WILL error out!) in a string format.
+
+The function will return a boolean value of true or false based upon whether is processed the file or not (it will always return the value wheter the file processing was successful or not, the boolean value will return the value based upon whether the file was processable or not before processing occurred, so you might want to add error capturing into your own code).
+
+The following properties are contained with the same class. These properties are read only and will be initialized after the Find_Header_Tags function is executed (data types are also shown here):
+
+Album - String
+Artist - String
+Bitrate - Long
+Comments - String
+Filesize - String
+Frequency - String
+Header - String
+IsCopyright - Boolean
+IsLicensed - Boolean
+IsProtected - Boolean
+Layer - Integer
+Length (Duration, in seconds) - Long
+Mode - String
+Title - String
+Year - String
+
+
+Comments:
+I will be adding OGG file support later, Hopefully a few skew formats such as RM, NSV, ASF, etc.
+
+If you have anything you would like to contribute to this DLL (such as a tagreader for such a format), Make sure your code can fill all these values (I use global values as follows: fstr[PropertyName], ex: fstrAlbum, flngBitrate, fbolIsCopyright, fintLayer). When you set the property value, use these variables to store the data to. (some properties will be automatically assumed based upon file format, such as IsProtected, IsLicensed, Layer, etc.). Put the vb code into a class module and email it to: somenon@hotmail.com with a little bit of description.
+
